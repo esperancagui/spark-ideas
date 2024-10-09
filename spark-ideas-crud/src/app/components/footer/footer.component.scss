@@ -1,0 +1,13 @@
+@import'../../../styles.scss';
+
+footer{
+  background-color: $cor-primaria;
+  color: $cor-texto;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 420px) {
+  footer{
+    font-size: 16px;
+  }
+}
