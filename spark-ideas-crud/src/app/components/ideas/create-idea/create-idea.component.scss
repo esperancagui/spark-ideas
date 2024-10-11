@@ -1,28 +1,75 @@
 @import '../../../../styles.scss';
 
-.form{
-  background-color: $cor-secundaria;
-  color: $cor-texto;
-  margin: 1em;
-}
+:host{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.model{
-  background-color: $cor-texto;
-}
+  .form{
+    background-color: $cor-secundaria;
+    color: $cor-texto;
+    margin: 1em;
 
-.card-text{
-  word-wrap: break-word;
-  word-break: break-all;
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
+    .cards-container{
+      max-height: 40vh;
+      overflow-y: scroll;
+      padding-right: 1.5em;
 
-.model1{
-  box-shadow: 10px 10px 0px 1px #F95454;
-}
-.model2{
-  box-shadow: 10px 10px 0px 1px #00FF9C;
-}
-.model3{
-  box-shadow: 10px 10px 0px 1px #0D92F4;
-}
+      &::-webkit-scrollbar {
+        width: 12px;
+
+      }
+
+
+      &::-webkit-scrollbar-track {
+        background: $cor-secundaria;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $cor-texto;
+        border-radius: 10px;
+        border: 3px solid $cor-secundaria;
+      }
+
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: darken($cor-texto, 10%);
+      }
+
+
+      scrollbar-width: thin;
+      scrollbar-color: $cor-texto $cor-secundaria;
+    }
+    }
+  }
+
+  .model{
+    background-color: $cor-texto;
+  }
+
+  .card-text{
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .model1{
+    box-shadow: 10px 10px 0px 1px #F95454;
+  }
+  .model2{
+    box-shadow: 10px 10px 0px 1px #00FF9C;
+  }
+  .model3{
+    box-shadow: 10px 10px 0px 1px #0D92F4;
+  }
+
+  @media screen and (min-width: 720px){
+    .form{
+      width: 800px;
+    }
+  }
+
+
+

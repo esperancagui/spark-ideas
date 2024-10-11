@@ -3,7 +3,7 @@
 
     <!-- Text inputs: -->
 
-    <form class="p-5">
+    <form (ngSubmit)="saveIdea()" class="p-5 form-container">
       <div class="mb-3">
         <label for="new idea" class="form-label">Write down your new idea:</label>
         <input [(ngModel)]="idea.content" name="content" type="text" class="form-control p-2" id="idea" placeholder="Type an idea here:" required>
@@ -15,7 +15,7 @@
 
       <!-- Card model inputs: -->
 
-      <div class="mb-5 contain">
+      <div class="mb-5 contain cards-container">
         <label for="model" class="form-label">Select the card model:</label>
         <div class="d-flex flex-wrap gap-5">
           <div class="form-check">
@@ -84,7 +84,7 @@
       <!-- Submit -->
 
       <button type="submit" class="btn btn-primary py-1 px-3 mx-2">Save</button>
-      <button type="reset" class="btn btn-secondary py-1 px-3 mx-2" >Cancel</button>
+      <button type="button" class="btn btn-secondary py-1 px-3 mx-2" >Cancel</button>
     </form>
   </div>
 </section>
