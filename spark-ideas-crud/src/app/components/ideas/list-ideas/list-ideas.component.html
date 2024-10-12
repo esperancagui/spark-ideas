@@ -1,16 +1,16 @@
 <div class="ideas-container d-flex flex-column align-items-center p-4">
-  <h2 class="pb-4">Idea Mural</h2>
+  <h2 class="pb-4 fw-bold">Idea Mural</h2>
 
 
-  <div *ngIf="ideas.length === 0" class="alert alert-warning">
-    No ideas to display.
+  <div *ngIf="ideas.length === 0" class="py-3 fw-bold">
+    No ideas to display yet.
   </div>
 
 
-  <button (click)="createIdeaPath()" class="btn btn-primary mb-3">Create Idea</button>
-
-
-  <button (click)="limparLocalStorage()" class="btn btn-danger mb-3">Clear LocalStorage</button>
+  <div class="d-flex gap-4">
+    <button (click)="createIdeaPath()" class="btn btn-primary mb-3 p-2">Create new Idea</button>
+    <button (click)="cleanLocalStorage()" class="btn btn-danger mb-3 p-2">Clear Mural</button>
+  </div>
 
 
   <div class="mural w-75 mb-5">
@@ -21,7 +21,7 @@
         <div class="card-footer d-flex gap-3 justify-content-between">
           <p class="fw-bold">{{idea.author}}</p>
           <div class="buttons d-flex gap-2">
-            <button class="btn btn-outline-secondary"><i class="bi bi-pencil-square"></i></button>
+            <button (click)="editIdea(idea)" class="btn btn-outline-secondary"><i class="bi bi-pencil-square"></i></button>
             <button (click)="deleteIdea(idea.id)" class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i></button>
           </div>
         </div>

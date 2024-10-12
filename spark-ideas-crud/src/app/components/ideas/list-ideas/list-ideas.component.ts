@@ -33,14 +33,23 @@ export class ListIdeasComponent implements OnInit {
   }
 
   deleteIdea(id: string): void{
-    this.ideaService.deleteIdea(id)
-    this.loadIdeas()
+    if (confirm('Are you sure tou want to delete?')) {
+      this.ideaService.deleteIdea(id)
+      this.loadIdeas()
+    }
   }
 
-  limparLocalStorage() {
-    localStorage.clear();
-    console.log('LocalStorage limpo com sucesso!');
+  editIdea(idea: Idea){
+    this.ideaService.setIdeaToEdit(idea)
+    this.router.navigate(['/createIdea'])
   }
+
+  cleanLocalStorage() {
+    if (confirm('Are you sure you want to clear all?')) {
+      localStorage.clear();
+    }
+  }
+
 
 
 }

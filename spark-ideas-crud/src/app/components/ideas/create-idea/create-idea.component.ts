@@ -32,8 +32,11 @@ export class CreateIdeaComponent {
     private router: Router
   ){}
 
-  ngOnInit(){
-    this.loadIdeas()
+  ngOnInit(): void {
+    const ideaToEdit = this.ideaService.getIdeaToEdit();
+    if (ideaToEdit) {
+      this.idea = ideaToEdit
+    }
   }
 
   loadIdeas(){
@@ -46,11 +49,13 @@ export class CreateIdeaComponent {
   }
 
   saveIdea(form: NgForm){
+
     if (form.valid) {
-      this.ideaService.saveIdea(this.idea)
-      this.resetForm()
-      this.loadIdeas()
-      this.router.navigate(['/listIdeas'])
+      this.ideaService.saveIdea(this.idea);
+      this.ideaService.clearIdeaToEdit();
+      this.resetForm();
+      this.loadIdeas();
+      this.router.navigate(['/listIdeas']);
     } else {
       alert('Please, fill out all fields before saving')
     }
@@ -59,7 +64,8 @@ export class CreateIdeaComponent {
 
   cancel(){
     if (confirm('Are you sure you want to cancel?')) {
-      this.router.navigate(['/listIdeas'])
+      this.ideaService.clearIdeaToEdit();
+      this.router.navigate(['/listIdeas']);
     }
   }
 

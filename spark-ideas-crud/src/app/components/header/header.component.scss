@@ -1,14 +1,17 @@
 @import '../../../styles.scss';
 
-header{
-  background-color: $cor-primaria;
-  h1{
-    color: $cor-texto;
+:host{
+  header{
+    background-color: $cor-primaria;
+    h1{
+      color: $cor-texto;
+    }
   }
+
+
+
+  .img-logo{
+    width: 40px;
+    height: 40px;
 }
-
-
-.img-logo{
-  width: 40px;
-  height: 40px;
 }
