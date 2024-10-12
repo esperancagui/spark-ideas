@@ -3,7 +3,7 @@
 
 :host {
   .mural {
-    column-count: 4;
+    column-count: 1;
     column-gap: 2em;
     .model {
       width: 100%;
@@ -35,6 +35,10 @@
       overflow-wrap: break-word;
     }
 
+    .card-footer{
+      background-color: $cor-texto;
+    }
+
     .buttons {
       display: flex;
       gap: 10px;
@@ -45,5 +49,21 @@
       }
     }
   }
+
 }
 
+@media screen and (min-width:780px ){
+  :host{
+    .mural{
+      column-count: 3;
+    }
+  }
+}
+
+@media screen and (min-width:1200px){
+  :host{
+    .mural{
+      column-count: 4;
+    }
+  }
+}

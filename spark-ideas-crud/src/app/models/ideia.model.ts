@@ -1,5 +1,5 @@
 export interface Idea{
-  id?: String,
+  id: string,
   content: String,
   author: String,
   model: String

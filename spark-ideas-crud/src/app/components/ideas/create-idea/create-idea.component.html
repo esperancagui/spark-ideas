@@ -26,13 +26,13 @@
         <label for="author" class="form-label">Author:</label>
         <input
         [(ngModel)]="idea.author"
-        name="content"
+        name="author"
         type="text"
         class="form-control p-2"
-        id="idea"
+        id="author"
         placeholder="The author of your idea:"
         required
-        #author = "ngModel"
+        #author="ngModel"
         >
 
         <div *ngIf="author.invalid && author.touched" class="text-danger">
