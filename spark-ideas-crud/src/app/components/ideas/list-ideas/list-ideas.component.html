@@ -1,1 +1,19 @@
-<p>list-ideas works!</p>
+<div class="ideas-container">
+  <h2>Idea Mural</h2>
+
+  <div *ngIf="ideas.length === 0" class="alert alert-warning">
+    No ideas to display.
+  </div>
+
+  <button (click)="createIdeaPath()">create idea</button>
+
+  <button (click)="limparLocalStorage()">Limpar LocalStorage</button>
+
+  <div *ngFor="let idea of ideas" class="model card" [ngClass]="idea.model">
+    <div class="card-body p-2">
+      <h4><i class="bi bi-quote card-title"></i></h4>
+      <p class="card-text">{{idea.content}}</p>
+      <p class="card-footer fw-bold">{{idea.author}}</p>
+    </div>
+  </div>
+</div>

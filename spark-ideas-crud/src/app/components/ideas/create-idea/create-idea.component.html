@@ -3,14 +3,42 @@
 
     <!-- Text inputs: -->
 
-    <form (ngSubmit)="saveIdea()" class="p-5 form-container">
+    <form #form="ngForm" (ngSubmit)="saveIdea(form)" class="p-5 form-container">
       <div class="mb-3">
         <label for="new idea" class="form-label">Write down your new idea:</label>
-        <input [(ngModel)]="idea.content" name="content" type="text" class="form-control p-2" id="idea" placeholder="Type an idea here:" required>
+        <input
+          [(ngModel)]="idea.content"
+          name="content"
+          type="text"
+          class="form-control p-2"
+          id="idea"
+          placeholder="Type an idea here:"
+          required
+          #content = "ngModel"
+          >
+
+          <div *ngIf="content.invalid && content.touched" class="text-danger">
+            Please write your idea.
+          </div>
+
       </div>
       <div class="mb-3">
         <label for="author" class="form-label">Author:</label>
-        <input [(ngModel)]="idea.author" name="content" type="text" class="form-control p-2" id="idea" placeholder="The author of your idea:" required>
+        <input
+        [(ngModel)]="idea.author"
+        name="content"
+        type="text"
+        class="form-control p-2"
+        id="idea"
+        placeholder="The author of your idea:"
+        required
+        #author = "ngModel"
+        >
+
+        <div *ngIf="author.invalid && author.touched" class="text-danger">
+          Please enter the author's name.
+        </div>
+
       </div>
 
       <!-- Card model inputs: -->
@@ -25,6 +53,8 @@
               value="model1"
               name="model-card"
               [(ngModel)]="idea.model"
+              required
+              #model="ngModel"
             >
             <label class="form-check-label p-2" for="flexRadioDefault1">
               Model 1:
@@ -45,6 +75,8 @@
               value="model2"
               name="model-card"
               [(ngModel)]="idea.model"
+              required
+              #model="ngModel"
             >
             <label class="form-check-label p-2" for="flexRadioDefault2">
               Model 2:
@@ -65,6 +97,8 @@
               value="model3"
               name="model-card"
               [(ngModel)]="idea.model"
+              required
+              #model="ngModel"
             >
             <label class="form-check-label p-2" for="flexRadioDefault2">
               Model 3:
@@ -76,15 +110,21 @@
                 <p class="card-footer fw-bold">{{idea.author}}</p>
               </div>
             </div>
-          </div>
 
+            <div *ngIf="model.invalid && model.touched" class="text-danger">
+              Please select a card model.
+            </div>
+
+          </div>
         </div>
+
+
       </div>
 
       <!-- Submit -->
 
-      <button type="submit" class="btn btn-primary py-1 px-3 mx-2">Save</button>
-      <button type="button" class="btn btn-secondary py-1 px-3 mx-2" >Cancel</button>
+      <button type="submit" class="btn btn-primary py-1 px-3 mx-2" [disabled]="form.invalid">Save</button>
+      <button (click)="cancel()" type="button" class="btn btn-secondary py-1 px-3 mx-2">Cancel</button>
     </form>
   </div>
 </section>

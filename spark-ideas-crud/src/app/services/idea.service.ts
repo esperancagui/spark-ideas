@@ -20,6 +20,8 @@ export class IdeaService {
     idea.id = new Date().getTime().toString();
     ideas.push(idea);
     localStorage.setItem(this.storageKey, JSON.stringify(ideas));
+
+    alert('Your idea was successfully saved')
   }
 
   deleteIdea(id: string): void {

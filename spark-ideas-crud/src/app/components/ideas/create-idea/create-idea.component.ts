@@ -1,12 +1,18 @@
 import { IdeaService } from './../../../services/idea.service';
 import { Idea } from './../../../models/ideia.model';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Importando o FormsModule
+import { FormsModule, NgForm } from '@angular/forms'; // Importando o FormsModule
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create-idea',
   standalone: true,
-  imports: [FormsModule],  // Adicionando o FormsModule aqui
+  imports: [
+    FormsModule,
+    CommonModule,
+  ],  // Adicionando o FormsModule aqui
   templateUrl: './create-idea.component.html',
   styleUrls: ['./create-idea.component.scss']  // Corrigido para "styleUrls"
 })
@@ -21,7 +27,10 @@ export class CreateIdeaComponent {
 
   ideas: Idea[] = []
 
-  constructor(private ideaService: IdeaService){}
+  constructor(
+    private ideaService: IdeaService,
+    private router: Router
+  ){}
 
   ngOnInit(){
     this.loadIdeas()
@@ -36,14 +45,21 @@ export class CreateIdeaComponent {
     this.loadIdeas()
   }
 
-  saveIdea(){
-    this.ideaService.saveIdea(this.idea)
-    this.resetForm()
+  saveIdea(form: NgForm){
+    if (form.valid) {
+      this.ideaService.saveIdea(this.idea)
+      this.resetForm()
+      this.loadIdeas()
+      this.router.navigate(['/listIdeas'])
+    } else {
+      alert('Please, fill out all fields before saving')
+    }
+
   }
 
   cancel(){
     if (confirm('Are you sure you want to cancel?')) {
-      window.location.reload()
+      this.router.navigate(['/listIdeas'])
     }
   }
 
