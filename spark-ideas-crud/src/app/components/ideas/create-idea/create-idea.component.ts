@@ -66,9 +66,9 @@ export class CreateIdeaComponent {
   resetForm(){
     this.idea = {
       id: '',
-    content: '',
-    author: '',
-    model: ''
+      content: '',
+      author: '',
+      model: ''
     }
   }
 

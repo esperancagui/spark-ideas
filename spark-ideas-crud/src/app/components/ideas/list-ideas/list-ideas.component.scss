@@ -1,22 +1,30 @@
 @import '../../../../styles.scss';
 
-.model{
-  background-color: $cor-texto;
+:host{
+  .mural{
+
+    .model{
+      background-color: $cor-texto;
+    }
+
+    .card-text{
+      word-wrap: break-word;
+      word-break: break-all;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .model1{
+      box-shadow: 10px 10px 0px 1px #F95454;
+    }
+    .model2{
+      box-shadow: 10px 10px 0px 1px #00FF9C;
+    }
+    .model3{
+      box-shadow: 10px 10px 0px 1px #0D92F4;
+    }
+
+  }
+
 }
 
-.card-text{
-  word-wrap: break-word;
-  word-break: break-all;
-  max-width: 100%;
-  overflow-wrap: break-word;
-}
-
-.model1{
-  box-shadow: 10px 10px 0px 1px #F95454;
-}
-.model2{
-  box-shadow: 10px 10px 0px 1px #00FF9C;
-}
-.model3{
-  box-shadow: 10px 10px 0px 1px #0D92F4;
-}

@@ -9,11 +9,13 @@
 
   <button (click)="limparLocalStorage()">Limpar LocalStorage</button>
 
-  <div *ngFor="let idea of ideas" class="model card" [ngClass]="idea.model">
-    <div class="card-body p-2">
-      <h4><i class="bi bi-quote card-title"></i></h4>
-      <p class="card-text">{{idea.content}}</p>
-      <p class="card-footer fw-bold">{{idea.author}}</p>
+  <div class="mural d-flex gap-5 flex-wrap">
+    <div *ngFor="let idea of ideas" class="model card" [ngClass]="idea.model">
+      <div class="card-body p-2">
+        <h4><i class="bi bi-quote card-title"></i></h4>
+        <p class="card-text">{{idea.content}}</p>
+        <p class="card-footer fw-bold">{{idea.author}}</p>
+      </div>
     </div>
   </div>
 </div>
