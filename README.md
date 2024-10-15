@@ -13,7 +13,7 @@ Spark Ideas CRUD is a web application where users can create, edit, and delete i
 
 ## Demo
 
-Check out the live demo here: [Spark Ideas CRUD](https://spark-ideas-crud.vercel.app)
+Check out the live demo here: [Spark Ideas CRUD](https://spark-ideas-crud.vercel.app/listIdeas)
 
 ## Installation
 
